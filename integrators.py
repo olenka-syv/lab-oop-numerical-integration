@@ -51,7 +51,9 @@ class BaseIntegrator:
 
     def __str__(self):
         """Повертає рядкове представлення об'єкта інтегратора."""
-        pass
+
+        return (f"{self.method_name} на відрізку [{self.a}; {self.b}] "
+                f"(порядок точності O(h^{self.order}))")
 
 
 class RectangleIntegrator(BaseIntegrator):
