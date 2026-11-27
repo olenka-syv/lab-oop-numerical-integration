@@ -98,7 +98,13 @@ class SimpsonIntegrator(BaseIntegrator):
     method_name = "Формула Сімпсона"
 
     def __init__(self, func, a, b):
-        pass
+
+        super().__init__(func, a, b)
 
     def integrate(self, n):
-        pass
+
+        h = (self.b - self.a) / n
+        ends = self.func(self.a) + self.func(self.b)
+        odd = sum(self.func(self.a + i * h) for i in range(1, n, 2))
+        even = sum(self.func(self.a + i * h) for i in range(2, n - 1, 2))
+        return h / 3 * (ends + 4 * odd + 2 * even)
