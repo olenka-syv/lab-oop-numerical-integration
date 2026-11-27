@@ -9,7 +9,11 @@ class BaseIntegrator:
 
     def __init__(self, func, a, b):
         """Ініціалізує підінтегральну функцію та межі інтегрування."""
-        pass
+        
+        self.validate_bounds(a, b)
+        self.func = func
+        self.a = a
+        self.b = b
 
     @classmethod
     def from_dict(cls, func, params):
