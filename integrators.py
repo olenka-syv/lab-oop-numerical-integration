@@ -76,14 +76,19 @@ class RectangleIntegrator(BaseIntegrator):
 class TrapezoidIntegrator(BaseIntegrator):
     """Обчислення інтеграла складеною формулою трапецій."""
 
-    order = None
+    order = 2
     method_name = "Формула трапецій"
 
     def __init__(self, func, a, b):
-        pass
+
+        super().__init__(func, a, b)
 
     def integrate(self, n):
-        pass
+
+        h = (self.b - self.a) / n
+        ends = (self.func(self.a) + self.func(self.b)) / 2
+        total = sum(self.func(self.a + i * h) for i in range(1, n))
+        return h * (ends + total)
 
 
 class SimpsonIntegrator(BaseIntegrator):
