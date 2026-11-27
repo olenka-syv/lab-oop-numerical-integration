@@ -94,7 +94,7 @@ class TrapezoidIntegrator(BaseIntegrator):
 class SimpsonIntegrator(BaseIntegrator):
     """Обчислення інтеграла складеною формулою Сімпсона."""
 
-    order = None
+    order = 4
     method_name = "Формула Сімпсона"
 
     def __init__(self, func, a, b):
