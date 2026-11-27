@@ -9,7 +9,7 @@ class BaseIntegrator:
 
     def __init__(self, func, a, b):
         """Ініціалізує підінтегральну функцію та межі інтегрування."""
-        
+
         self.validate_bounds(a, b)
         self.func = func
         self.a = a
@@ -18,7 +18,8 @@ class BaseIntegrator:
     @classmethod
     def from_dict(cls, func, params):
         """Альтернативний конструктор для створення інтегратора зі словника."""
-        pass
+        
+        return cls(func, params["a"], params["b"])
 
     @staticmethod
     def validate_bounds(a, b):
